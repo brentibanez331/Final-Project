@@ -127,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 4866420268264336820}
   upwardVelocity: 5
-  levelSystem: {fileID: 0}
+  experienceValue: 50
 --- !u!50 &4866420268264336820
 Rigidbody2D:
   serializedVersion: 4

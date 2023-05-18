@@ -396,6 +396,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!2083052967 &66461249 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+  m_PrefabInstance: {fileID: 5506823879398656401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &67750180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,8 +1293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 213.51}
-  m_SizeDelta: {x: 0, y: -427.43}
+  m_AnchoredPosition: {x: 0, y: 216.07}
+  m_SizeDelta: {x: 0, y: -432.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &618898651
 MonoBehaviour:
@@ -1338,7 +1343,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.49
+  m_Value: 0.255
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3685,7 +3690,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3748207473097761883, guid: 367702bc316303e46916ef3b39298bf9, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748207473097761883, guid: 367702bc316303e46916ef3b39298bf9, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748207473097761883, guid: 367702bc316303e46916ef3b39298bf9, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748207473097761883, guid: 367702bc316303e46916ef3b39298bf9, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2.86
       objectReference: {fileID: 0}
     - target: {fileID: 3748207473097761886, guid: 367702bc316303e46916ef3b39298bf9, type: 3}
       propertyPath: m_Name
@@ -4571,6 +4588,10 @@ PrefabInstance:
       propertyPath: levelSystem
       value: 
       objectReference: {fileID: 652381307}
+    - target: {fileID: 4866420268264336818, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: visualEffect
+      value: 
+      objectReference: {fileID: 66461249}
     - target: {fileID: 8371290361613974593, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4618,6 +4639,34 @@ PrefabInstance:
     - target: {fileID: 8709397371101211518, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
       propertyPath: m_Name
       value: vfx_exp_loot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Name
+      value: New Color
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Value.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8998091974721549444, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[0].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3dc29ff71130e664fb76ad2236128829, type: 3}

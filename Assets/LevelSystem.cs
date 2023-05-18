@@ -21,10 +21,10 @@ public class LevelSystem : MonoBehaviour
     }
 
     public void GainExp(float expValue)
-    {   
+    {
         if(timeRemaining == 0.5f)
         {
-            previousExp = currentExp;              //if time remaining = 3, run this, subtract from the variable to prevent updating
+            previousExp = currentExp;              //if time remaining = 0.5, run this, subtract from the variable to prevent updating
             StartCoroutine(Timer());
         }
         currentExp = currentExp + expValue;
@@ -36,8 +36,12 @@ public class LevelSystem : MonoBehaviour
             requiredExp = requiredExp + (requiredExp * (expRate/100));
             previousExp = 0;
             expBar.SetMaxExp(currentExp, requiredExp);
+            //StartCoroutine(Timer());
             //expBar.SetExp(previousExp, currentExp, requiredExp);
         }
+
+       // Debug.Log("Your current exp is: " + currentExp);
+        //Debug.Log("Your required exp is: " + requiredExp);
     }
 
     IEnumerator Timer()
