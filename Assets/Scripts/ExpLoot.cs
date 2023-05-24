@@ -9,7 +9,7 @@ public class ExpLoot : MonoBehaviour
     public float upwardVelocity = 2f;
     float lifeSpan = 5f;
 
-    public float experienceValue;
+    public int experienceValue;
 
     VisualEffect visualEffect;
 
@@ -55,7 +55,7 @@ public class ExpLoot : MonoBehaviour
         }
     }
 
-    public void SetExpValue(float value)
+    public void SetExpValue(int value)
     {
         experienceValue = value;    
     }

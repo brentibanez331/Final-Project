@@ -10,7 +10,7 @@ public class ItemDrop : MonoBehaviour
 
     [SerializeField] int minDrops;
     [SerializeField] private int maxDrops;
-    [SerializeField] float experienceValue;
+    [SerializeField] int experienceValue;
 
     ExpLoot exp;
 
