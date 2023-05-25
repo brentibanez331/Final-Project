@@ -44,7 +44,6 @@ public class ExpLoot : MonoBehaviour
                 alphaAmount = Mathf.Lerp(1f, -1f, timeElapsed / duration);
                 visualEffect.SetFloat("ParticleAlpha", alphaAmount);
 
-                Debug.Log(alphaAmount);
                 timeElapsed += Time.deltaTime;
             }
             

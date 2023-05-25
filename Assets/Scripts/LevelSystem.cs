@@ -14,8 +14,9 @@ public class LevelSystem : MonoBehaviour
 
     public LevelSystem()
     {
+        Debug.Log("Level System");
         level = 1;
-        currentExp = 0;
+        currentExp = 200;
         requiredExp = 500;
     }
 
@@ -37,7 +38,8 @@ public class LevelSystem : MonoBehaviour
     }
     public float GetExpNormalized()
     {
-        return (float) currentExp / requiredExp;
+        float expNormmalized = (float) currentExp / requiredExp;
+        return expNormmalized;
     }
 
     public int GetCurrentExp()

@@ -14,16 +14,18 @@ public class LevelSystemAnimated : MonoBehaviour
 
     [SerializeField] LevelSystem levelSystem;
     private bool isAnimating;
-    private void Start()
+    private void Awake()
     {
         SetLevelSystem();
-    }
-    public void SetLevelSystem()
-    {
+
         level = levelSystem.GetLevelNumber();
         currentExp = levelSystem.GetCurrentExp();
         requiredExp = levelSystem.GetRequiredExp();
 
+        Debug.Log("LevelSystemAnim");
+    }
+    public void SetLevelSystem()
+    {
         levelSystem.OnExperienceChanged += LevelSystem_OnExperienceChanged;
     }
 
@@ -55,7 +57,6 @@ public class LevelSystemAnimated : MonoBehaviour
             }
         }
     }
-    
 
     private void AddExperience() 
     {
@@ -74,6 +75,7 @@ public class LevelSystemAnimated : MonoBehaviour
 
     public float GetExpNormalized()
     {
-        return (float)currentExp / requiredExp;
+        float expNormalized = (float) currentExp / requiredExp;
+        return expNormalized;
     }
 }

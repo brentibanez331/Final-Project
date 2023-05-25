@@ -11,9 +11,13 @@ public class BullBehaviour : MonoBehaviour
     //GameObject player;
     [SerializeField] float speed;
 
-    float timeRemaining;
+    float timeRemaining = 3;
     Vector3 targetPosition;
     float newX_Pos;
+
+    [SerializeField] private Transform PointA;
+    [SerializeField] private Transform PointB;
+
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -31,32 +35,22 @@ public class BullBehaviour : MonoBehaviour
         {
             
 
-            if (transform.position.x < targetPosition.x)
-            {
-                newX_Pos = Random.Range(-5f, 5f);
-                targetPosition = new Vector3(newX_Pos, transform.position.y, transform.position.z);
-                transform.localScale = new Vector2(-1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector2(1, 1);
-            }
-
             StartCoroutine(Move());
-            timeRemaining = 5f;
+            timeRemaining = Random.Range(2f, 4f);
         }
-        
+        //transform.Translate(Vector2.left * speed * Time.deltaTime);   
     }
     IEnumerator Move()
     {
         while(transform.position != targetPosition)
         {
-            
-
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-
+            //transform.Translate(Vector2.right * -transform.localScale.x * speed * Time.deltaTime);
+            anim.SetBool("isWalking", true);
             yield return null;
         }
+
+        anim.SetBool("isWalking", false);
     }
 
 }

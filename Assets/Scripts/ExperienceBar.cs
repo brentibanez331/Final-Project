@@ -7,15 +7,27 @@ public class ExperienceBar : MonoBehaviour
 {
     [SerializeField] public Slider slider;
 
-    //[SerializeField] LevelSystem levelSystem;
     [SerializeField] LevelSystemAnimated levelSystemAnimated;
 
     private void Start()
-    { 
+    {
+        slider.minValue = 0;
+        slider.value = 0;
+        slider.maxValue = 1;
         SetLevelSystemAnimated();
+        //Debug.Log("Experience Bar");
     }
+
+    /*ExperienceBar()
+    {
+        SetLevelSystemAnimated();
+    }*/
+
+    //Gubaon ka
     public void SetExp(float expNormalized)
     {
+        slider.maxValue = 1;
+        //Debug.Log(expNormalized);
         slider.value = expNormalized;
     }
     public void SetLevelSystemAnimated()
