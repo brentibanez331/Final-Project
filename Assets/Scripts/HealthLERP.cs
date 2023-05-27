@@ -14,7 +14,6 @@ public class HealthLERP : MonoBehaviour
 
     void Update()
     {
-        //slider.maxValue = healthbar.maxHealth;
         if (takenDamage)
         {
             slider.value = Mathf.Lerp(slider.value, healthbar.currentHealth, Time.deltaTime * speed);
@@ -28,7 +27,5 @@ public class HealthLERP : MonoBehaviour
         {
             takenDamage = false;
         }
-        
-       // slider.value = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
     }
 }

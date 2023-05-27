@@ -6,14 +6,13 @@ public class PlayerCombat : MonoBehaviour
 {
     Animator anim;
 
-    //For testing only
-    public int maxHealth = 100;
+    [SerializeField] private int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthBar;
 
     public Transform attackPoint;
-    public Vector2 attackRange = new Vector2(3, 1.5f);
+    [SerializeField] private Vector2 attackRange = new Vector2(3, 1.5f);
     int attackDamage = 20;
     float attackRate = 2f;
     float nextAttackTime = 0f;
@@ -22,7 +21,6 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-        currentHealth = 20;
         healthBar.SetMaxHealth(maxHealth);
         healthBar.SetHealth(currentHealth);
 
@@ -54,6 +52,19 @@ public class PlayerCombat : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        //Play hurt animation here
+
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

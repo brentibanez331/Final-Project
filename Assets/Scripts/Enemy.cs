@@ -6,8 +6,8 @@ public class Enemy : MonoBehaviour
 {
     public HealthBar healthBar;
     [SerializeField] ItemDrop itemDrop;
-    //[SerializeField] private GameObject expLoot;
 
+    [SerializeField] int damage;
     public int maxHealth = 100;
     int currentHealth;
 
@@ -31,5 +31,10 @@ public class Enemy : MonoBehaviour
             itemDrop.DropLoot();
             Destroy(gameObject);
         }
+    }
+
+    public int GetDamage()
+    {
+        return damage;
     }
 }

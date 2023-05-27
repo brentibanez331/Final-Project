@@ -6,7 +6,6 @@ using UnityEngine;
 public class LevelSystemAnimated : MonoBehaviour
 {
     public event EventHandler OnExperienceChanged;
-    public event EventHandler OnLevelChanged;
 
     private int level;
     private int currentExp;

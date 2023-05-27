@@ -70,8 +70,6 @@ public class PlayerMovement : MonoBehaviour
             //Play walk animation
             anim.SetBool("isWalking", true);
             transform.Translate(Vector2.right * horizontalInput * speed * Time.deltaTime);
-
-            
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

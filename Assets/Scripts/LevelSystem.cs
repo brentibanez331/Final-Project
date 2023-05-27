@@ -6,7 +6,6 @@ using UnityEngine;
 public class LevelSystem : MonoBehaviour
 {
     public event EventHandler OnExperienceChanged;
-    public event EventHandler OnLevelChanged;
 
     [SerializeField] private int level;
     [SerializeField] private int currentExp;
@@ -14,7 +13,6 @@ public class LevelSystem : MonoBehaviour
 
     public LevelSystem()
     {
-        Debug.Log("Level System");
         level = 1;
         currentExp = 200;
         requiredExp = 500;
