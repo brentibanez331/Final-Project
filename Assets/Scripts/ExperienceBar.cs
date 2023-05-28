@@ -1,34 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ExperienceBar : MonoBehaviour
 {
-    [SerializeField] public Slider slider;
+    //[SerializeField] public Slider slider;
+
+    [SerializeField] Image expFill;
 
     [SerializeField] LevelSystemAnimated levelSystemAnimated;
+    [SerializeField] LevelSystem levelSystem;
+
+    [SerializeField] TextMeshProUGUI levelText;
 
     private void Start()
     {
-        slider.minValue = 0;
-        slider.value = 0;
-        slider.maxValue = 1;
+        expFill.fillAmount = 0f;
         SetLevelSystemAnimated();
-        //Debug.Log("Experience Bar");
     }
 
-    /*ExperienceBar()
+    private void Update()
     {
-        SetLevelSystemAnimated();
-    }*/
+        if(expFill.fillAmount >= 1f)
+        {
+            levelText.text = levelSystem.GetLevelNumber().ToString();
+        }
+    }
 
-    //Gubaon ka
     public void SetExp(float expNormalized)
     {
-        slider.maxValue = 1;
-        //Debug.Log(expNormalized);
-        slider.value = expNormalized;
+        expFill.fillAmount = expNormalized;
     }
     public void SetLevelSystemAnimated()
     {

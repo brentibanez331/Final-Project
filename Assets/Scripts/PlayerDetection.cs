@@ -11,12 +11,12 @@ public class PlayerDetection : MonoBehaviour
     bool canCast = true;
 
     private void Update()
-    { 
-        if(coolDown > 0)
+    {
+        if (coolDown > 0)
         {
             coolDown -= Time.deltaTime;
             canCast = false;
-            
+
         }
         else
         {
@@ -26,16 +26,16 @@ public class PlayerDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             bullBehaviour.canWalk = false;
 
-            if(canCast)
+            if (canCast)
             {
                 bullBehaviour.anim.SetTrigger("playerDetected");
                 coolDown = 3;
             }
-            
+
             bullBehaviour.isCharging = true;
         }
     }

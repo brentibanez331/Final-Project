@@ -12,8 +12,6 @@ public class BullBehaviour : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] public bool isCharging = false;
     [SerializeField] private Transform patrolPoint;
-    [SerializeField] private Transform pointA;
-    [SerializeField] private Transform pointB;
 
     [SerializeField] Transform hpBarPlaceholder;
 
@@ -87,13 +85,12 @@ public class BullBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Ground")
+        if (collision.collider.tag == "Ground")
         {
             isGrounded = true;
         }
-        if(collision.collider.tag == "Player")
+        if (collision.collider.tag == "Player")
         {
-            //Physics2D.IgnoreLayerCollision(3, 7, true);
             Debug.Log("Enemy collided with player");
         }
     }
@@ -109,7 +106,7 @@ public class BullBehaviour : MonoBehaviour
         }
 
         canWalk = true;
-        timeRemaining = dist/3;
+        timeRemaining = dist / 3;
         isCharging = false;
     }
 }

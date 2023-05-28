@@ -11,9 +11,13 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
 
+    private Shake shake;
+
     // Start is called before the first frame update
     void Start()
     {
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+
         currentHealth = maxHealth;
 
         healthBar.SetMaxHealth(maxHealth);
@@ -21,6 +25,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        shake.CamShake();
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 

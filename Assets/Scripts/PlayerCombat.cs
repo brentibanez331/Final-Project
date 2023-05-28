@@ -5,31 +5,48 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     Animator anim;
+    [SerializeField] ParticleSystem deathParticle;
+    [SerializeField] Material deathMat;
+
+    float dissolveAmount = 0;
+    float dissolveSpeed = 1f;
 
     [SerializeField] private int maxHealth = 100;
     public int currentHealth;
 
-    public HealthBar healthBar;
+    public PlayerHealthBar playerHealthBar;
 
     public Transform attackPoint;
     [SerializeField] private Vector2 attackRange = new Vector2(3, 1.5f);
     int attackDamage = 20;
     float attackRate = 2f;
     float nextAttackTime = 0f;
-    
+
+    [HideInInspector] public bool canTakeDamage = true;
+
+    //private PlayerSkills playerSkills;
+
     int enemyLayers = 1 << 3;
+
+    private Shake shake;
 
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
-        healthBar.SetHealth(currentHealth);
+        deathMat.SetFloat("_DissolveAmount", 0f);
+
+        shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
+
+        playerHealthBar.SetHealth(currentHealth, maxHealth);
 
         anim = GetComponent<Animator>();
+        //playerSkills = new PlayerSkills();
     }
 
     void Update()
     {
-        if(Time.time >= nextAttackTime)
+        deathParticle.transform.position = transform.position;
+
+        if (Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButtonDown(0))
             {
@@ -42,13 +59,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
-        //Play attack anim
         anim.SetTrigger("attack");
-
-        //Detect enemies in range
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, attackRange, 0, enemyLayers);
-
-        //Damage them
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
@@ -57,21 +69,28 @@ public class PlayerCombat : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-
-        //Play hurt animation here
-
-        if (currentHealth <= 0)
+        if (canTakeDamage)
         {
-            Destroy(gameObject);
+            shake.CamShake();
+
+            currentHealth -= damage;
+
+            playerHealthBar.SetHealth(currentHealth, maxHealth);
+            //healthBar.SetHealth(currentHealth);
+
+            if (currentHealth <= 0)
+            {
+                deathParticle.Play();
+                StartCoroutine(Death());
+            }
         }
     }
 
     public void HealDamage(int healAmount)
     {
         currentHealth += healAmount;
-        healthBar.SetHealth(currentHealth);
+        playerHealthBar.SetHealth(currentHealth, maxHealth);
+        //healthBar.SetHealth(currentHealth);
     }
 
     private void OnDrawGizmosSelected()
@@ -81,6 +100,20 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         Gizmos.DrawWireCube(attackPoint.position, attackRange);
+    }
+
+    IEnumerator Death()
+    {
+        while (dissolveAmount < 1)
+        {
+            dissolveAmount = Mathf.Clamp01(dissolveAmount + dissolveSpeed * Time.deltaTime);
+
+            deathMat.SetFloat("_DissolveAmount", dissolveAmount);
+
+            yield return null;
+        }
+
+        gameObject.SetActive(false);
     }
 }
     

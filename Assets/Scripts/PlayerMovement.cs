@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
 
-    public Transform hpBarPlaceholder;
+    //public Transform hpBarPlaceholder;
 
     // Start is called before the first frame update
     void Start()
@@ -55,15 +55,15 @@ public class PlayerMovement : MonoBehaviour
             if(horizontalInput < 0)
             {
                 transform.localScale = new Vector2(-1, 1);
-                if (hpBarPlaceholder.localScale.x > 0)
+                /*if (hpBarPlaceholder.localScale.x > 0)
                 {
                     hpBarPlaceholder.localScale = new Vector2(-hpBarPlaceholder.localScale.x, hpBarPlaceholder.localScale.y);
-                }
+                }*/
             }
             else
             {
                 transform.localScale = new Vector2(1, 1);
-                hpBarPlaceholder.localScale = new Vector2(Mathf.Abs(hpBarPlaceholder.localScale.x), hpBarPlaceholder.localScale.y);
+                //hpBarPlaceholder.localScale = new Vector2(Mathf.Abs(hpBarPlaceholder.localScale.x), hpBarPlaceholder.localScale.y);
 
                 //hpBarPlaceholder.localScale = hpBarPlaceholder.localScale * -1;
             }
