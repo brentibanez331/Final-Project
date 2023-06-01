@@ -14,16 +14,11 @@ public class Sword : MonoBehaviour
     Animator anim;
 
     [SerializeField] ParticleSystem idleParticles;
-    //ParticleSystem.MainModule main_idleParticles;
-
-
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         anim.SetBool("isRotating", true);
-        //main_idleParticles = idleParticles.main;
     }
 
     // Update is called once per frame
@@ -57,6 +52,7 @@ public class Sword : MonoBehaviour
         {
             followPlayer = true;
             idleParticles.Stop();
+            transform.localRotation = Quaternion.identity;
             anim.SetBool("isRotating", false);
         }
     }
