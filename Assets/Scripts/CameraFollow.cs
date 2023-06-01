@@ -26,8 +26,8 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            Vector3 newPos = new Vector3(player.position.x, player.position.y, -10f);
-            transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+            //Vector3 newPos = new Vector3(player.position.x, player.position.y + 2.5f, -10f);
+            //transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
         }
     }
 }

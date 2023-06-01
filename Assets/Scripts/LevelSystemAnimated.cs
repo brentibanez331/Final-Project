@@ -74,7 +74,7 @@ public class LevelSystemAnimated : MonoBehaviour
 
     private void AddExperience() 
     {
-        currentExp += 2;
+        currentExp += 4;
         if(currentExp > requiredExp)
         {
             level++;

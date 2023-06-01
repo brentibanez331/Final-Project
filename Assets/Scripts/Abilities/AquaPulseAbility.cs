@@ -7,10 +7,13 @@ public class AquaPulseAbility : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] int damage;
+    bool isMoving = true;
 
     [SerializeField] Transform hitBox;
 
     GameObject enemyObject;
+
+    Vector3 offset = new Vector3(.6f, 0f, 0f);
 
     float direction;
     Transform player;
@@ -23,11 +26,20 @@ public class AquaPulseAbility : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         direction = player.localScale.x;
+
+        if(direction < 0)
+        {
+            offset = -offset;
+        }
     }
 
     void Update()
     {
-        transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
+        if (isMoving)
+        {
+            transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
+        }
+        
         transform.localScale = new Vector2(-1 * -direction, 1);
     }
 
@@ -47,10 +59,15 @@ public class AquaPulseAbility : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (collision.tag == "Enemy")   
         {
             enemyObject = collision.gameObject;
             StartCoroutine(Sweep(enemyObject));
+        }
+
+        if(collision.tag == "Ground")
+        {
+            isMoving = false;
         }
     }
 
@@ -58,7 +75,7 @@ public class AquaPulseAbility : MonoBehaviour
     {
         while (enemyObject != null)
         {
-            enemyObject.transform.position = transform.position;
+            enemyObject.transform.position = transform.position + offset;
             yield return null;
         }
     }
