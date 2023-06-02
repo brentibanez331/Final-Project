@@ -1892,7 +1892,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Testing Scene
+          m_StringArgument: Story Intro
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &8550329275268077437

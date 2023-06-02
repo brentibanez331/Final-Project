@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - ScreenShake
   - Dialogue
+  - DialogueTrigger
+  - JumpPoint
   layers:
   - Default
   - TransparentFX

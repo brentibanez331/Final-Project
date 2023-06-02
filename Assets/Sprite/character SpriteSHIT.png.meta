@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character SpriteSHIT_0
+      name: idle1
       rect:
         serializedVersion: 2
         x: 0
@@ -125,7 +125,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_1
+      name: idle2
       rect:
         serializedVersion: 2
         x: 361
@@ -146,7 +146,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,7 +159,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_2
+      name: idle3
       rect:
         serializedVersion: 2
         x: 722
@@ -167,7 +167,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_3
+      name: idle4
       rect:
         serializedVersion: 2
         x: 1083
@@ -188,7 +188,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_4
+      name: idle5
       rect:
         serializedVersion: 2
         x: 1444
@@ -209,7 +209,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -222,7 +222,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_5
+      name: idle6
       rect:
         serializedVersion: 2
         x: 1805
@@ -230,7 +230,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -243,7 +243,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_6
+      name: idle7
       rect:
         serializedVersion: 2
         x: 0
@@ -251,7 +251,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -264,7 +264,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_7
+      name: idle8
       rect:
         serializedVersion: 2
         x: 361
@@ -272,7 +272,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,7 +285,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_8
+      name: idle9
       rect:
         serializedVersion: 2
         x: 722
@@ -293,7 +293,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -306,7 +306,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_9
+      name: walk1
       rect:
         serializedVersion: 2
         x: 0
@@ -314,7 +314,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -327,7 +327,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_10
+      name: walk2
       rect:
         serializedVersion: 2
         x: 361
@@ -335,7 +335,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -348,7 +348,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_11
+      name: walk3
       rect:
         serializedVersion: 2
         x: 722
@@ -356,7 +356,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -369,7 +369,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_12
+      name: walk4
       rect:
         serializedVersion: 2
         x: 1083
@@ -377,7 +377,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -390,7 +390,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_13
+      name: walk5
       rect:
         serializedVersion: 2
         x: 1444
@@ -398,7 +398,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -411,7 +411,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_14
+      name: walk6
       rect:
         serializedVersion: 2
         x: 1805
@@ -419,7 +419,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -432,7 +432,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_15
+      name: walk7
       rect:
         serializedVersion: 2
         x: 0
@@ -440,7 +440,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -453,7 +453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_16
+      name: walk8
       rect:
         serializedVersion: 2
         x: 361
@@ -461,7 +461,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -474,7 +474,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_17
+      name: walk9
       rect:
         serializedVersion: 2
         x: 722
@@ -482,7 +482,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -495,7 +495,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_18
+      name: walk10
       rect:
         serializedVersion: 2
         x: 1083
@@ -503,7 +503,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -516,7 +516,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_19
+      name: walk11
       rect:
         serializedVersion: 2
         x: 1444
@@ -524,7 +524,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -537,7 +537,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_20
+      name: jump1
       rect:
         serializedVersion: 2
         x: 0
@@ -545,7 +545,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -558,7 +558,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_21
+      name: jump2
       rect:
         serializedVersion: 2
         x: 361
@@ -566,7 +566,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -579,7 +579,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_22
+      name: jump3
       rect:
         serializedVersion: 2
         x: 722
@@ -587,7 +587,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -600,7 +600,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_23
+      name: jump4
       rect:
         serializedVersion: 2
         x: 1083
@@ -608,7 +608,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -621,7 +621,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_24
+      name: jump5
       rect:
         serializedVersion: 2
         x: 1444
@@ -629,7 +629,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_25
+      name: jump6
       rect:
         serializedVersion: 2
         x: 1805
@@ -650,7 +650,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -663,7 +663,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_26
+      name: jump7
       rect:
         serializedVersion: 2
         x: 0
@@ -671,7 +671,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -684,7 +684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_27
+      name: jump8
       rect:
         serializedVersion: 2
         x: 361
@@ -692,7 +692,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -705,7 +705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_28
+      name: jump9
       rect:
         serializedVersion: 2
         x: 722
@@ -713,7 +713,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -726,7 +726,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_29
+      name: jump10
       rect:
         serializedVersion: 2
         x: 1083
@@ -734,7 +734,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -747,7 +747,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_30
+      name: jump11
       rect:
         serializedVersion: 2
         x: 1444
@@ -755,7 +755,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -768,7 +768,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_31
+      name: jump12
       rect:
         serializedVersion: 2
         x: 1805
@@ -776,7 +776,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -789,7 +789,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character SpriteSHIT_32
+      name: jump13
       rect:
         serializedVersion: 2
         x: 0
@@ -797,7 +797,7 @@ TextureImporter:
         width: 361
         height: 361
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -820,39 +820,39 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character SpriteSHIT_29: -695846643
-      character SpriteSHIT_10: 220062941
-      character SpriteSHIT_4: 848840087
-      character SpriteSHIT_13: 357366005
-      character SpriteSHIT_17: -304040229
-      character SpriteSHIT_9: 2027650722
-      character SpriteSHIT_32: -616878603
-      character SpriteSHIT_3: 70244422
-      character SpriteSHIT_14: -2125981027
-      character SpriteSHIT_26: -392293368
-      character SpriteSHIT_8: -327283479
-      character SpriteSHIT_7: -1937581840
-      character SpriteSHIT_1: -2139308672
-      character SpriteSHIT_18: 1847230820
-      character SpriteSHIT_5: -461330303
-      character SpriteSHIT_22: -965049121
-      character SpriteSHIT_11: 59348055
-      character SpriteSHIT_19: -2138682624
-      character SpriteSHIT_28: -784378155
-      character SpriteSHIT_0: 1927797801
-      character SpriteSHIT_2: 499372351
-      character SpriteSHIT_12: 2099343347
-      character SpriteSHIT_6: -1031771458
-      character SpriteSHIT_23: -1375902974
-      character SpriteSHIT_15: 722893133
-      character SpriteSHIT_24: 1575227058
-      character SpriteSHIT_21: -1351311494
-      character SpriteSHIT_16: -1909664774
-      character SpriteSHIT_27: -2010362620
-      character SpriteSHIT_30: -1628107387
-      character SpriteSHIT_31: 2059514729
-      character SpriteSHIT_20: -1279509758
-      character SpriteSHIT_25: -1638171925
+      jump8: -2010362620
+      jump9: -784378155
+      walk9: -304040229
+      walk7: 722893133
+      idle8: -1937581840
+      idle6: -461330303
+      walk1: 2027650722
+      idle7: -1031771458
+      walk10: 1847230820
+      jump11: -1628107387
+      jump7: -392293368
+      idle1: 1927797801
+      idle9: -327283479
+      jump10: -695846643
+      jump6: -1638171925
+      idle2: -2139308672
+      walk6: -2125981027
+      jump4: -1375902974
+      jump1: -1279509758
+      idle3: 499372351
+      walk5: 357366005
+      idle4: 70244422
+      jump13: -616878603
+      walk3: 59348055
+      walk4: 2099343347
+      idle5: 848840087
+      jump5: 1575227058
+      walk2: 220062941
+      walk8: -1909664774
+      jump3: -965049121
+      jump2: -1351311494
+      jump12: 2059514729
+      walk11: -2138682624
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
