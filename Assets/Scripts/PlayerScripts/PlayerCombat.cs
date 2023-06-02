@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -22,6 +23,9 @@ public class PlayerCombat : MonoBehaviour
     float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    GameObject sword;
+    float timeElapsed_sword = 3f;
+
     [HideInInspector] public bool canTakeDamage = true;
 
     //private PlayerSkills playerSkills;
@@ -32,6 +36,8 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
+        sword = GameObject.FindGameObjectWithTag("Sword");
+
         deathMat.SetFloat("_DissolveAmount", 0f);
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
@@ -39,7 +45,6 @@ public class PlayerCombat : MonoBehaviour
         playerHealthBar.SetHealth(currentHealth, maxHealth);
 
         anim = GetComponent<Animator>();
-        //playerSkills = new PlayerSkills();
     }
 
     void Update()
@@ -50,9 +55,20 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                sword.GetComponent<Sword>().Dissolving();
                 Attack();
+                timeElapsed_sword = 3f;
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+        }
+
+        if(timeElapsed_sword > 0)
+        {
+            timeElapsed_sword -= Time.deltaTime;
+        }
+        else
+        {
+            sword.GetComponent<Sword>().Regaining();
         }
         
     }

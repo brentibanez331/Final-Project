@@ -10,8 +10,11 @@ public class IntroSystem : MonoBehaviour
     [HideInInspector] public Animator playerAnim;
 
     [HideInInspector] public bool isWalking = true;
+    [HideInInspector] public bool canvasRegaining = false;
 
     [SerializeField] float speed = 5f;
+
+    [SerializeField] GameObject dialogueTrigger;
 
     [SerializeField] GameObject cameraObject;
     Animator camObjAnimator;
@@ -33,14 +36,6 @@ public class IntroSystem : MonoBehaviour
         {
             player.transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
-
-        //if Dialogue has ended
-        //if (Input.GetKey(KeyCode.C))
-        //{
-            //camObjAnimator.SetTrigger("endDialogue");
-            //player.GetComponent<PlayerMovement>().enabled = true;
-            //player.GetComponent<PlayerCombat>().enabled = true;
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +45,14 @@ public class IntroSystem : MonoBehaviour
             isWalking = false;
             playerAnim.SetBool("isWalking", false);
             camObjAnimator.SetTrigger("panRight");
+        }
+        if(collision.tag == "Sword")
+        {
+            dialogueTrigger.SetActive(false);
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<PlayerCombat>().enabled = true;
+            isWalking = false;
+            canvasRegaining = true;
         }
     }
 }

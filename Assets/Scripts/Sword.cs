@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
-    Transform player;
+    [SerializeField] private Material dissolveMat;
+    private float dissolveAmount = 0;
+    public bool isDissolving;
+    private float dissolveSpeed = 3f;
+
+    GameObject player;
     [SerializeField] float followSpeed = 3f;
     float xPosOffset = 0.7f;
     Vector3 newPos;
@@ -16,8 +21,9 @@ public class Sword : MonoBehaviour
     [SerializeField] ParticleSystem idleParticles;
     void Start()
     {
+        dissolveMat.SetFloat("_DissolveAmount", dissolveAmount);
         anim = GetComponent<Animator>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
         anim.SetBool("isRotating", true);
     }
 
@@ -38,12 +44,28 @@ public class Sword : MonoBehaviour
             }
 
             transform.position = Vector3.Slerp(transform.position, newPos, followSpeed * Time.deltaTime);
+
+            if (isDissolving)
+            {
+                dissolveAmount = Mathf.Clamp(dissolveAmount + dissolveSpeed * Time.deltaTime, 0, 1.1f);
+                dissolveMat.SetFloat("_DissolveAmount", dissolveAmount);
+            }
+            else
+            {
+                dissolveAmount = Mathf.Clamp(dissolveAmount - dissolveSpeed * Time.deltaTime, 0, 1.1f);
+                dissolveMat.SetFloat("_DissolveAmount", dissolveAmount);
+            }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Dissolving()
     {
-        
+        isDissolving = true;
+    }
+
+    public void Regaining()
+    {
+        isDissolving = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
