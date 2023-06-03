@@ -13,6 +13,8 @@ public class LevelSystemAnimated : MonoBehaviour
     private int currentExp;
     int requiredExp;
 
+    
+
     [SerializeField] LevelSystem levelSystem;
     private bool isAnimating;
     private void Awake()
@@ -22,9 +24,8 @@ public class LevelSystemAnimated : MonoBehaviour
         level = levelSystem.GetLevelNumber();
         currentExp = levelSystem.GetCurrentExp();
         requiredExp = levelSystem.GetRequiredExp();
-
-        Debug.Log("LevelSystemAnim");
     }
+
     public void SetLevelSystem()
     {
         levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
@@ -40,13 +41,8 @@ public class LevelSystemAnimated : MonoBehaviour
 
     private void LevelSystem_OnLevelChanged(object sender, System.EventArgs e)
     {
-        //SetLevelNumber(levelSystem.GetLevelNumber());
-    }
 
-    /*private void LevelSystem_OnLevelChanged(object sender, System.EventArgs e)
-    {
-        levelText.text = level.ToString();
-    }*/
+    }
 
     private void Update()
     {

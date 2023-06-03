@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 174152235}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1282587, y: -0.6620827, z: 0}
+  m_LocalPosition: {x: -0.13319969, y: -0.6620827, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 272499825}
   m_Layer: 0
   m_Name: Dialogue1
-  m_TagString: Dialogue
+  m_TagString: DialogueTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -508,7 +508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f194f1e278f42d2489c7e53ccc0a9c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  introSystem: {fileID: 582287755}
   dialogue:
     name: AERIS
     sentences:
@@ -949,6 +948,7 @@ MonoBehaviour:
   isWalking: 1
   canvasRegaining: 0
   speed: 3
+  dialogueTrigger: {fileID: 0}
   cameraObject: {fileID: 174152235}
 --- !u!1 &641884529
 GameObject:
@@ -2240,6 +2240,8 @@ MonoBehaviour:
   dialogueText: {fileID: 779271858}
   animator: {fileID: 1744151828}
   introSystem: {fileID: 582287755}
+  dialogueTrigger: {fileID: 272499824}
+  dialogueEnded: 0
 --- !u!4 &2081535216
 Transform:
   m_ObjectHideFlags: 0

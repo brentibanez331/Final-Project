@@ -10,6 +10,8 @@ public class ExperienceBar : MonoBehaviour
 
     [SerializeField] Image expFill;
 
+    [HideInInspector] public bool isLevel2 = false;
+
     [SerializeField] LevelSystemAnimated levelSystemAnimated;
     [SerializeField] LevelSystem levelSystem;
 
@@ -26,6 +28,10 @@ public class ExperienceBar : MonoBehaviour
         if(expFill.fillAmount >= 1f)
         {
             levelText.text = levelSystem.GetLevelNumber().ToString();
+            if(levelText.text == "2")
+            {
+                isLevel2 = true;
+            }
         }
     }
 

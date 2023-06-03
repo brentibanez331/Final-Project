@@ -8,10 +8,16 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Image image;
     Color color;
 
-    [HideInInspector] bool hideUI = false;
+    [HideInInspector] public bool hideUI = false;
+    [HideInInspector] public bool uiIsHidden = false;
 
     [SerializeField] DialogueManager dialogueManager;
     [SerializeField] Sword sword;
+    [SerializeField] ExperienceBar expBar;
+
+    [SerializeField] PauseManager pauseManager;
+    [SerializeField] GameObject pauseHandler;
+    [SerializeField] SkillTreeManager skillTreeManager;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +30,9 @@ public class TutorialManager : MonoBehaviour
     {
         if (!hideUI)
         {
-            if(dialogueManager != null)
+            skillTreeManager.canAccessSkillTree = false;
+
+            if (dialogueManager != null)
             {
                 if (dialogueManager.dialogueEnded)
                 {
@@ -41,17 +49,49 @@ public class TutorialManager : MonoBehaviour
                     image.color = color;
                 }
             }
+
+            if(expBar != null)
+            {
+                if (expBar.isLevel2)
+                {
+                    color.a = Mathf.MoveTowards(color.a, 1f, 2f * Time.deltaTime);
+                    image.color = color;
+                }
+            }
+
+            if(color.a == 1f)
+            {
+                pauseManager.PauseGame();
+            }
         }
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            hideUI = true;
+            if(pauseManager != null)
+            {
+                pauseManager.ResumeGame();
+                hideUI = true;
+            }
         }
 
         if (hideUI)
         {
             color.a = Mathf.MoveTowards(color.a, 0f, 2f * Time.deltaTime);
             image.color = color;
+
+            if(image.color.a <= 0f)
+            {
+                uiIsHidden = true;
+                if(skillTreeManager != null)
+                {
+                    skillTreeManager.canAccessSkillTree = true;
+                }
+                if(pauseHandler != null)
+                {
+                    pauseHandler.GetComponent<PauseHandler>().enabled = true;
+                }                
+                gameObject.GetComponent<TutorialManager>().enabled = false;
+            }
         }
     }
 }
