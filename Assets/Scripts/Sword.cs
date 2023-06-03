@@ -10,6 +10,8 @@ public class Sword : MonoBehaviour
     public bool isDissolving;
     private float dissolveSpeed = 3f;
 
+    [HideInInspector] public bool swordTouched = false;
+
     GameObject player;
     [SerializeField] float followSpeed = 3f;
     float xPosOffset = 0.7f;
@@ -81,6 +83,7 @@ public class Sword : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            swordTouched = true;
             followPlayer = true;
             idleParticles.Stop();
             transform.localRotation = Quaternion.identity;

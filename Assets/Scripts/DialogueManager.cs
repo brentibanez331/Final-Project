@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] IntroSystem introSystem;
     [SerializeField] GameObject dialogueTrigger;
 
+    [HideInInspector] public bool dialogueEnded = false;
+
     [HideInInspector] public Queue<string> sentences;
 
     
@@ -41,8 +43,6 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        Debug.Log(sentences.Count);
-
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         Destroy(dialogueTrigger);
-
+        dialogueEnded = true;
         Debug.Log("End of Conversation");
         if(introSystem != null)
         {

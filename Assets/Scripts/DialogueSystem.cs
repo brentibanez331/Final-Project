@@ -26,5 +26,10 @@ public class DialogueSystem : MonoBehaviour
             //introSystem.playerAnim.SetBool("isWalking", false);
             //introSystem.isWalking = false;
         }
+
+        if (other.CompareTag("DialogueTrigger"))
+        {
+            dialogueManager.StartDialogue(dialogue);
+        }
     }
 }

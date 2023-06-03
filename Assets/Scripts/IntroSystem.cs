@@ -40,7 +40,7 @@ public class IntroSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Dialogue")
+        if(collision.tag == "DialogueTrigger")
         {
             isWalking = false;
             playerAnim.SetBool("isWalking", false);
@@ -48,7 +48,7 @@ public class IntroSystem : MonoBehaviour
         }
         if(collision.tag == "Sword")
         {
-            dialogueTrigger.SetActive(false);
+            //dialogueTrigger.SetActive(false);
             player.GetComponent<PlayerMovement>().enabled = true;
             player.GetComponent<PlayerCombat>().enabled = true;
             isWalking = false;
