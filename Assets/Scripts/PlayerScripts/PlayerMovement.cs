@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
+            speed = 4f;
             anim.SetTrigger("takeOff");
             isGrounded = false;
             rb.velocity = Vector2.up * jumpForce;
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.collider.tag == "Ground")
         {
+            speed = 5f;
             isGrounded = true;
         }
     }

@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField] IntroSystem introSystem;
+    //[SerializeField] IntroSystem introSystem;
     public Dialogue dialogue;
     public DialogueManager dialogueManager;
+
 
     private void Update()
     {
@@ -19,7 +20,7 @@ public class DialogueSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("DialogueTrigger"))
+        if (other.CompareTag("Player"))
         {
             dialogueManager.StartDialogue(dialogue);
             //introSystem.playerAnim.SetBool("isWalking", false);

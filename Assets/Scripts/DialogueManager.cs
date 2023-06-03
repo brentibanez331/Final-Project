@@ -11,8 +11,11 @@ public class DialogueManager : MonoBehaviour
     public Animator animator;
 
     [SerializeField] IntroSystem introSystem;
+    [SerializeField] GameObject dialogueTrigger;
 
     [HideInInspector] public Queue<string> sentences;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -63,9 +66,14 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        Destroy(dialogueTrigger);
+
         Debug.Log("End of Conversation");
-        introSystem.playerAnim.SetBool("isWalking", true);
-        introSystem.isWalking = true;
+        if(introSystem != null)
+        {
+            introSystem.playerAnim.SetBool("isWalking", true);
+            introSystem.isWalking = true;
+        }
         animator.SetBool("isOpen", false);
     }
 }

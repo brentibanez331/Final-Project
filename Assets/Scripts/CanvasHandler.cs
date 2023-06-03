@@ -17,7 +17,7 @@ public class CanvasHandler : MonoBehaviour
     {
         if (introSystem.canvasRegaining)
         {
-            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 1, 0.5f * Time.deltaTime);
+            canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 1, 1.2f * Time.deltaTime);
         }
 
         if(canvasGroup.alpha >= 1)

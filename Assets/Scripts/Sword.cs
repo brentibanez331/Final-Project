@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sword : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class Sword : MonoBehaviour
     [SerializeField] ParticleSystem idleParticles;
     void Start()
     {
+        Scene scene = SceneManager.GetActiveScene();
+
+        if(scene.name == "MapDesign")
+        {
+            idleParticles.Stop();
+            followPlayer = true;
+        }
+
         dissolveMat.SetFloat("_DissolveAmount", dissolveAmount);
         anim = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");

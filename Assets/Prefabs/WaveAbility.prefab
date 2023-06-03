@@ -178,6 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  damage: 0
+  damage: 30
   hitBox: {fileID: 4713667512045492079}
   attackRange: 0.82

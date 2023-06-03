@@ -12,6 +12,8 @@ TagManager:
   - JumpPoint
   - Projectile
   - Sword
+  - Cinemachine
+  - FallBounds
   layers:
   - Default
   - TransparentFX

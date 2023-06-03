@@ -8,7 +8,9 @@ public class SlimeBehaviour : MonoBehaviour
 {
     [HideInInspector] public bool targetPlayer = false;
     bool isGrounded = false;
-    [SerializeField] private Vector2 jumpDirection;
+    [SerializeField] private Vector2 jumpDirection_min;
+    [SerializeField] private Vector2 jumpDirection_max;
+    private Vector2 jumpDirection;
     [HideInInspector] public float direction;
     bool movingRight;
 
@@ -19,6 +21,7 @@ public class SlimeBehaviour : MonoBehaviour
     [SerializeField] Transform pointB;
 
     float timeRemaining = 1f;
+    [SerializeField] float timeIntervals;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,8 @@ public class SlimeBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        jumpDirection = new Vector2(Random.Range(jumpDirection_min.x, jumpDirection_max.x), Random.Range(jumpDirection_min.y, jumpDirection_max.y));
+
         //Need Fixes
         if (isGrounded)
         {
@@ -91,7 +96,7 @@ public class SlimeBehaviour : MonoBehaviour
         if(collision.collider.tag == "Ground")
         {
             isGrounded = true;
-            timeRemaining = 0.5f;
+            timeRemaining = timeIntervals;
         }
     }
 
