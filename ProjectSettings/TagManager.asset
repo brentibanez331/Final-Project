@@ -15,6 +15,7 @@ TagManager:
   - Cinemachine
   - FallBounds
   - Heal
+  - exp
   layers:
   - Default
   - TransparentFX

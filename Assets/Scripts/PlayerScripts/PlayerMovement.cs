@@ -9,6 +9,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator anim;
     private Rigidbody2D rb;
+
+    [SerializeField] AudioSource jumpSFX;
+    [SerializeField] AudioSource landSFX;
+    [SerializeField] public AudioSource walkSFX;
+
+    [SerializeField] AudioSource collectSFX;
+    bool hasJumped = false;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -19,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
+            hasJumped = true;
+            walkSFX.enabled = false;
+            jumpSFX.Play();
             speed = 4f;
             anim.SetTrigger("takeOff");
             isGrounded = false;
@@ -42,10 +53,16 @@ public class PlayerMovement : MonoBehaviour
         if(horizontalInput == 0)
         {
             //Play idle animation
+            walkSFX.enabled = false;
             anim.SetBool("isWalking", false);
         }
         else
         {
+            if (isGrounded)
+            {
+                walkSFX.enabled = true;
+            }
+            
             //Flip character sprite
             if (horizontalInput < 0)
             {
@@ -64,8 +81,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.collider.tag == "Ground")
         {
+            if (hasJumped)
+            {
+                landSFX.Play();
+                hasJumped = false;
+            }
+            
             speed = 5f;
             isGrounded = true;
+        }
+
+        if(collision.collider.tag == "exp")
+        {
+            collectSFX.Play();
         }
     }
     

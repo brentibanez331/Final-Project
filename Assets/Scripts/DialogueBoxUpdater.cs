@@ -38,9 +38,10 @@ public class DialogueBoxUpdater : MonoBehaviour
 
         if(dialogueManager.sentences.Count == 1)
         {
+            player.GetComponent<PlayerMovement>().enabled = true;
+            player.GetComponent<PlayerMovement>().walkSFX.enabled = true;
             Destroy(gameObject);
             Destroy(introManager);
-            player.GetComponent<PlayerMovement>().enabled = true;
         }
     }
 }

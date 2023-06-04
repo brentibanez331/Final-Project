@@ -23,7 +23,7 @@ public class ExpLoot : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-
+        
         levelSystem = player.GetComponent(typeof(LevelSystem)) as LevelSystem;
 
         visualEffect = GetComponent<VisualEffect>();

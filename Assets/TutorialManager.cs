@@ -20,6 +20,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] SkillTreeManager skillTreeManager;
 
     [SerializeField] PlayerCombat playerCombat;
+    [SerializeField] PlayerMovement playerMovement;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,7 @@ public class TutorialManager : MonoBehaviour
             if(color.a == 1f)
             {
                 pauseManager.PauseGame();
+                playerMovement.walkSFX.enabled = false;
                 if(playerCombat != null)
                 {
                     playerCombat.enabled = false;
@@ -78,6 +80,7 @@ public class TutorialManager : MonoBehaviour
         {
             if(pauseManager != null)
             {
+                playerMovement.walkSFX.enabled = true;
                 pauseManager.ResumeGame();
                 hideUI = true;
             }

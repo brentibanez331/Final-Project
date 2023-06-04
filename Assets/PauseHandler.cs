@@ -48,6 +48,7 @@ public class PauseHandler : MonoBehaviour
 
             yield return null;
         }
+        player.GetComponent<PlayerMovement>().walkSFX.enabled = false;
         playerCombat.enabled = false;
         skillTree.SetActive(false);
         skillTreeManager.canAccessSkillTree = false;

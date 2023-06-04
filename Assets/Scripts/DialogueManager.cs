@@ -12,12 +12,11 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField] IntroSystem introSystem;
     [SerializeField] GameObject dialogueTrigger;
+    [SerializeField] PlayerMovement playerMovement;
 
     [HideInInspector] public bool dialogueEnded = false;
 
     [HideInInspector] public Queue<string> sentences;
-
-    
 
     // Start is called before the first frame update
     void Start()

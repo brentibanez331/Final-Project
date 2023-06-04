@@ -14,8 +14,6 @@ public class IntroSystem : MonoBehaviour
 
     [SerializeField] float speed = 5f;
 
-    [SerializeField] GameObject dialogueTrigger;
-
     [SerializeField] GameObject cameraObject;
     Animator camObjAnimator;
 
@@ -34,6 +32,7 @@ public class IntroSystem : MonoBehaviour
     {
         if (isWalking)
         {
+            player.GetComponent<PlayerMovement>().walkSFX.enabled = true;
             player.transform.Translate(Vector2.right * speed * Time.deltaTime);
         }
     }

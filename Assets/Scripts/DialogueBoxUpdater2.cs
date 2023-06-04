@@ -24,7 +24,6 @@ public class DialogueBoxUpdater2 : MonoBehaviour
         if (dialogueManager.sentences.Count == 2)
         {
             virtualCamera.Follow = peakPoint;
-           // cameraAnim.SetBool("isPanning", true);
         }
         if(dialogueManager.sentences.Count == 0)
         {

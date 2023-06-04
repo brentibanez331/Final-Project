@@ -13,9 +13,11 @@ public class LevelSystemAnimated : MonoBehaviour
     private int currentExp;
     int requiredExp;
 
-    
+    GameObject player;
 
     [SerializeField] LevelSystem levelSystem;
+    [SerializeField] PlayerHealthBar healthBar;
+
     private bool isAnimating;
     private void Awake()
     {
@@ -24,6 +26,11 @@ public class LevelSystemAnimated : MonoBehaviour
         level = levelSystem.GetLevelNumber();
         currentExp = levelSystem.GetCurrentExp();
         requiredExp = levelSystem.GetRequiredExp();
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void SetLevelSystem()
@@ -70,10 +77,13 @@ public class LevelSystemAnimated : MonoBehaviour
 
     private void AddExperience() 
     {
-        currentExp += 4;
+        currentExp += 5;
         if(currentExp > requiredExp)
         {
             level++;
+            player.GetComponent<PlayerCombat>().currentHealth = player.GetComponent<PlayerCombat>().maxHealth;
+            healthBar.SetHealth(player.GetComponent<PlayerCombat>().currentHealth, player.GetComponent<PlayerCombat>().maxHealth);
+
             currentExp = 0;
             if(OnLevelChanged != null) OnLevelChanged(this, EventArgs.Empty);
         }

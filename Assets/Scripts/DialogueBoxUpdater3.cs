@@ -27,6 +27,7 @@ public class DialogueBoxUpdater3 : MonoBehaviour
             virtualCamera.Follow = peakPoint;
 
             anim.SetBool("isWalking", false);
+            player.GetComponent<PlayerMovement>().walkSFX.enabled = false;
             player.GetComponent<PlayerMovement>().enabled = false;
             player.GetComponent<PlayerCombat>().enabled = false;
         }

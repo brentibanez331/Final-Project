@@ -12,6 +12,8 @@ public class LevelSystem : MonoBehaviour
     [SerializeField] private int currentExp;
     [SerializeField] int requiredExp;
 
+    GameObject player;
+
     private PlayerSkills playerSkills;
 
     public LevelSystem()
@@ -20,6 +22,11 @@ public class LevelSystem : MonoBehaviour
         currentExp = 200;
         requiredExp = 500;
         playerSkills = new PlayerSkills();
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public PlayerSkills GetPlayerSkills()

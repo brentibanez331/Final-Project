@@ -9,6 +9,7 @@ public class DialogueSystem : MonoBehaviour
     public Dialogue dialogue;
     public DialogueManager dialogueManager;
 
+    [SerializeField] PlayerMovement playerMovement;
 
     private void Update()
     {
@@ -22,13 +23,13 @@ public class DialogueSystem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerMovement.walkSFX.enabled = false;
             dialogueManager.StartDialogue(dialogue);
-            //introSystem.playerAnim.SetBool("isWalking", false);
-            //introSystem.isWalking = false;
         }
 
         if (other.CompareTag("DialogueTrigger"))
         {
+            playerMovement.walkSFX.enabled = false;
             dialogueManager.StartDialogue(dialogue);
         }
     }

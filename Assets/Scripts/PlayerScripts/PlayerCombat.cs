@@ -15,7 +15,7 @@ public class PlayerCombat : MonoBehaviour
     float dissolveAmount = 0;
     float dissolveSpeed = 1f;
 
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] public int maxHealth = 100;
     public int currentHealth;
 
     public PlayerHealthBar playerHealthBar;
@@ -30,6 +30,9 @@ public class PlayerCombat : MonoBehaviour
     float timeElapsed_sword = 3f;
 
     [HideInInspector] public bool canTakeDamage = true;
+
+    public AudioSource swordSFX;
+    public AudioSource hitEnemySFX;
 
     //private PlayerSkills playerSkills;
 
@@ -58,6 +61,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                
                 sword.GetComponent<Sword>().Dissolving();
                 Attack();
                 timeElapsed_sword = 3f;
@@ -80,10 +84,21 @@ public class PlayerCombat : MonoBehaviour
     {
         anim.SetTrigger("attack");
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPoint.position, attackRange, 0, enemyLayers);
+        if (hitEnemies.Length > 0)
+        {
+            hitEnemySFX.Play();
+        }
+        else
+        {
+            swordSFX.Play();
+        }
+
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
+
+        
     }
 
     public void TakeDamage(int damage)

@@ -32,6 +32,11 @@ public class PlayerAbility : MonoBehaviour
     [SerializeField] Image aquaCDFill;
     [SerializeField] Image zephyrCDFill;
 
+    [SerializeField] AudioSource fireBallSFX;
+    [SerializeField] AudioSource frostBiteSFX;
+    [SerializeField] AudioSource aquaPulseSFX;
+    [SerializeField] AudioSource zephyrShieldSFX;
+
 
     int layerMask = 1 << 6;
 
@@ -85,6 +90,7 @@ public class PlayerAbility : MonoBehaviour
                 if (fireBall_CurrentCoolDown <= 0)
                 {
                     Instantiate(fireBall, transform.position, Quaternion.identity);
+                    fireBallSFX.Play();
                     fireBall_CurrentCoolDown = fireBall_CD;
                     fireCDFill.fillAmount = 1f;
                     StartCoroutine(FireBallCD());
@@ -113,6 +119,7 @@ public class PlayerAbility : MonoBehaviour
             {
                 if (aquaPulse_CurrentCoolDown <= 0)
                 {
+                    aquaPulseSFX.Play();
                     Instantiate(aquaPulse, new Vector2(transform.position.x, transform.position.y - (distToCollider - 1f)), Quaternion.identity);
                     aquaPulse_CurrentCoolDown = aquaPulse_CD;
                     aquaCDFill.fillAmount = 1f;
