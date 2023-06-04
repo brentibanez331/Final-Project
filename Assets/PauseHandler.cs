@@ -14,6 +14,8 @@ public class PauseHandler : MonoBehaviour
     [SerializeField] GameObject canvasObjects;
     [SerializeField] GameObject skillTree;
 
+    [SerializeField] PlayerCombat playerCombat;
+
     GameObject player;
 
     private void Start()
@@ -42,11 +44,11 @@ public class PauseHandler : MonoBehaviour
         
         while (pauseCanvasGroup.alpha < 1f)
         {
-            pauseCanvasGroup.alpha = Mathf.MoveTowards(pauseCanvasGroup.alpha, 1f, 2f * Time.deltaTime);
+            pauseCanvasGroup.alpha = Mathf.MoveTowards(pauseCanvasGroup.alpha, 1f, 3f * Time.deltaTime);
 
             yield return null;
         }
-        player.GetComponent<PlayerCombat>().enabled = false;
+        playerCombat.enabled = false;
         skillTree.SetActive(false);
         skillTreeManager.canAccessSkillTree = false;
         pauseManager.PauseGame();
@@ -57,7 +59,7 @@ public class PauseHandler : MonoBehaviour
         pauseManager.ResumeGame();
         while (pauseCanvasGroup.alpha > 0f)
         {
-            pauseCanvasGroup.alpha = Mathf.MoveTowards(pauseCanvasGroup.alpha, 0f, 2f * Time.deltaTime);
+            pauseCanvasGroup.alpha = Mathf.MoveTowards(pauseCanvasGroup.alpha, 0f, 3f * Time.deltaTime);
 
             yield return null;
         }

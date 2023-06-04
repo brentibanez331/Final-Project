@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class FrostBiteAbility : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
 
     bool isMoving = true;
     bool enemyDetected = false;

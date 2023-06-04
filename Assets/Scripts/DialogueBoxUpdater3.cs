@@ -32,9 +32,14 @@ public class DialogueBoxUpdater3 : MonoBehaviour
         }
         else
         {
-            player.GetComponent<PlayerMovement>().enabled = true;
-            player.GetComponent<PlayerCombat>().enabled = true;
-            virtualCamera.Follow = player.transform;
+            if (dialogueManager.dialogueEnded)
+            {
+                player.GetComponent<PlayerMovement>().enabled = true;
+                player.GetComponent<PlayerCombat>().enabled = true;
+                virtualCamera.Follow = player.transform;
+                dialogueManager.dialogueEnded = false;
+            }
+            
         }
     }
 }

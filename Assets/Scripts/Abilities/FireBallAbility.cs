@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireBallAbility : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
 
     [SerializeField] GameObject hitImpact;
     Vector3 offset = new Vector3(0.2f, 0.2f, 0);

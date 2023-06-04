@@ -11,20 +11,20 @@ public class PlayerAbility : MonoBehaviour
 
     [SerializeField] GameObject fireBall;
     float fireBall_CurrentCoolDown = 0;
-    [SerializeField] float fireBall_CD = 3f;
+    [SerializeField] public float fireBall_CD = 3f;
 
     [SerializeField] GameObject frostBite;
     float frostBite_CurrentCoolDown = 0;
-    [SerializeField] float frostBite_CD = 3f;
+    [SerializeField] public float frostBite_CD = 3f;
 
     [SerializeField] GameObject aquaPulse;
     float aquaPulse_CurrentCoolDown = 0;
-    [SerializeField] float aquaPulse_CD = 3f;
+    [SerializeField] public float aquaPulse_CD = 3f;
 
     //[SerializeField] VisualEffect zephyrShield;
     [SerializeField] GameObject zephyrShield;
     float zephyrShield_CurrentCoolDown = 0;
-    [SerializeField] float zephyrShield_CD = 3f;
+    [SerializeField] public float zephyrShield_CD = 3f;
 
     int layerMask = 1 << 6;
 
@@ -39,7 +39,7 @@ public class PlayerAbility : MonoBehaviour
     private void Update()
     {
         RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down, 20f, layerMask);
-        
+
         if (hit.collider != null)
         {
             distToCollider = hit.distance;

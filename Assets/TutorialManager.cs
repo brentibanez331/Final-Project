@@ -19,6 +19,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] GameObject pauseHandler;
     [SerializeField] SkillTreeManager skillTreeManager;
 
+    [SerializeField] PlayerCombat playerCombat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,10 @@ public class TutorialManager : MonoBehaviour
     {
         if (!hideUI)
         {
-            skillTreeManager.canAccessSkillTree = false;
+            if(skillTreeManager != null)
+            {
+                skillTreeManager.canAccessSkillTree = false;
+            }
 
             if (dialogueManager != null)
             {
@@ -62,6 +67,10 @@ public class TutorialManager : MonoBehaviour
             if(color.a == 1f)
             {
                 pauseManager.PauseGame();
+                if(playerCombat != null)
+                {
+                    playerCombat.enabled = false;
+                }
             }
         }
 
@@ -89,7 +98,11 @@ public class TutorialManager : MonoBehaviour
                 if(pauseHandler != null)
                 {
                     pauseHandler.GetComponent<PauseHandler>().enabled = true;
-                }                
+                }
+                if(playerCombat != null)
+                {
+                    playerCombat.enabled = true;
+                }
                 gameObject.GetComponent<TutorialManager>().enabled = false;
             }
         }

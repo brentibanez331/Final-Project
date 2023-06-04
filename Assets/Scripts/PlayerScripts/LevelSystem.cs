@@ -29,16 +29,16 @@ public class LevelSystem : MonoBehaviour
 
     private void Update()
     {
-        if(level >= 1)
+        if(level >= 2)
+        {
+            playerSkills.UnlockSkill(PlayerSkills.SkillType.Fireball);
+        }
+        if (level >= 3)
         {
             playerSkills.UnlockSkill(PlayerSkills.SkillType.FrostBite);
             playerSkills.UnlockSkill(PlayerSkills.SkillType.ZephyrShield);
         }
-        if (level >= 2)
-        {
-            playerSkills.UnlockSkill(PlayerSkills.SkillType.Fireball);
-        }
-        if(level >= 3)
+        if(level >= 4)
         {
             playerSkills.UnlockSkill(PlayerSkills.SkillType.AquaPulse);
         }

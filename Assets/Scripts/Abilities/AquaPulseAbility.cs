@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class AquaPulseAbility : MonoBehaviour
 {
     [SerializeField] float speed;
-    [SerializeField] int damage;
+    [SerializeField] public int damage;
     bool isMoving = true;
 
     [SerializeField] Transform hitBox;

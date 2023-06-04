@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 
 public class ZephyrShieldAbility : MonoBehaviour
 {
-    float duration = 5f;
+    public float duration = 5f;
     VisualEffect visualEffect;
 
     PlayerCombat playerCombat;
