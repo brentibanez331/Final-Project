@@ -13,7 +13,6 @@ public class PlayerSkills
     }
 
     private List<SkillType> unlockedSkillTypeList;
-    
 
     public PlayerSkills()
     {

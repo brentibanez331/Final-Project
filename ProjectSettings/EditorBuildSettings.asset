@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Loading Scene.unity
     guid: 2127db0a0bc7f7542be1469cd669645e
+  - enabled: 1
+    path: Assets/Scenes/BossArea.unity
+    guid: 3b76ecee7e49ab74ea5c3551a4b82515
   m_configObjects: {}

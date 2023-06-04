@@ -4,29 +4,137 @@ using UnityEngine;
 
 public class BossRoomManager : MonoBehaviour
 {
-    private LimitArea limitArea;
     [SerializeField] private GameObject barrier;
     [SerializeField] private GameObject earthBoss;
+    
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private GameObject explosion;
+
+    private Enemy enemy;
+    private bool canCast = false;
+    private bool isInside = false;
+    public bool isDead = true;
+    private bool onDialogue = false;
+
+    [SerializeField] private LimitArea limitArea;
+    private EarthBossScript earthBossScript;
+    private CastProjectile castProjectile;
+
+    public GameObject HealthBarUI;
+
+    private Vector3 bossLoc;
+
+    [SerializeField] private GameObject EndDialogue;
     void Awake()
     {
-        limitArea = GetComponent<LimitArea>();
+        enemy = GameObject.Find("Boss_earth").GetComponent<Enemy>();
+
+        castProjectile = GameObject.Find("Caster").GetComponent<CastProjectile>();
+        
+    }
+    private void Start()
+    {
+        HealthBarUI.SetActive(false);
+    }
+    private void Update()
+    {
+        //Debug.Log(enemy.currentHealth);
+        if (canCast)
+        {
+            StartCoroutine(Cast());
+        }
+        if (isInside)
+        {
+            StartCoroutine(InitiateBarrier()); //function that starts when player enters the collider          
+            if(HealthBarUI != null)
+            {
+                HealthBarUI.SetActive(true);
+            }              
+        }
+        if(enemy.currentHealth > 0)
+        {
+            bossLoc = new Vector3(earthBoss.transform.position.x, earthBoss.transform.position.y + .3f, earthBoss.transform.position.z);
+        }
+        if (enemy.currentHealth <= 0)
+        {
+            if (isDead)
+            {
+                GenerateExplosion(explosion);
+                StartCoroutine(InitiateExitWindow());
+                isDead = false;
+            }  
+
+            isInside = false;
+            for (int i = 0; i < 2; i++)
+            {
+                //Debug.Log(limitArea.barrierArray[i].gameObject.name);
+                Destroy(limitArea.barrierArray[i]);
+            }
+        }
     }
     void OnTriggerEnter2D(Collider2D collision) 
     {
         if (collision.gameObject.tag == "Player")
         {
-            EarthBossScript earthBossScript = earthBoss.GetComponent<EarthBossScript>();
+            if(earthBoss != null)
+            {
+                earthBossScript = earthBoss.GetComponent<EarthBossScript>();
+            }           
             earthBossScript.SetPlayerHasEntered(true);
-            StartCoroutine(InitiateBarrier()); //function that starts when player enters the collider
+            isInside = true;
+            canCast = true;
         }
     }
     IEnumerator InitiateBarrier()
-    {
-        yield return new WaitForSeconds(1f);
-        InstantiateBarrier(); //function to instantiate a barrier to prevent player from leaving
+    {      
+        isInside = false;
+        yield return new WaitForSeconds(.5f);
+        
+        if (enemy.currentHealth > 0)
+        {
+            if(limitArea != null)
+            {
+                limitArea.InstantiateBarrier(barrier); //function to instantiate a barrier to prevent player from leaving
+            }
+        }
     }
-    void InstantiateBarrier()
+    IEnumerator Cast()
+    {  
+        if (enemy.currentHealth > 0f)
+        {
+            canCast = false;
+            yield return new WaitForSeconds(3f);
+            castProjectile.Cast(projectile);
+            canCast = true;
+        }
+        else if (enemy.currentHealth <= 0f)
+        {
+            canCast = false;
+        }       
+    }
+    void GenerateExplosion(GameObject explosion)
     {
-        limitArea.InstantiateBarrier(barrier);
+        GameObject explosionObject = Instantiate(explosion, bossLoc, transform.rotation);
+        explosionObject.transform.localScale = new Vector2(1.5f, 1.5f);
+        Destroy(explosionObject, .5f);
+    }
+    IEnumerator InitiateExitWindow()
+    {
+        yield return new WaitForSeconds(4f);
+
+        EndDialogue.SetActive(true);
+        Time.timeScale = 0;
+        onDialogue = true;
+        if (onDialogue)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Debug.Log("Scene to Main Menu");
+                EndDialogue.SetActive(false);
+                Time.timeScale = 1;
+            }
+            onDialogue = false;
+        }
+        yield return null;
     }
 }

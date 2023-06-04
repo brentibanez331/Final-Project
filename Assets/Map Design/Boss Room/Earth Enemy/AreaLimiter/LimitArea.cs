@@ -10,7 +10,9 @@ public class LimitArea : MonoBehaviour
     private Vector2 extentsCollider; //half the orientation of a collider
     private Vector2[] colliderSides = new Vector2[2]; //the outmost left and right sides of the collider
 
+    public GameObject[] barrierArray = new GameObject[2];
 
+    private GameObject barrierObject;
     void Start()
     {
         centerCollider = collider2d.bounds.center;
@@ -21,10 +23,10 @@ public class LimitArea : MonoBehaviour
     }
     public void InstantiateBarrier(GameObject barrier)
     {
-        for(int i = 0; i <= 1; i++)
+        for (int i = 0; i <= 1; i++)
         {
-            Instantiate(barrier, new Vector2(colliderSides[i].x, colliderSides[i].y), Quaternion.identity);
+            barrierObject = Instantiate(barrier, new Vector2(colliderSides[i].x, colliderSides[i].y), Quaternion.identity);
+            barrierArray[i] = barrierObject;
         }
-        
     }
 }

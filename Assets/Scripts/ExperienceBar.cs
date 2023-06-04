@@ -25,7 +25,7 @@ public class ExperienceBar : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(levelSystem.GetLevelNumber());
+        //Debug.Log(levelSystem.GetLevelNumber());
 
         if(expFill.fillAmount >= 1f)
         {

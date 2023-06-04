@@ -44,6 +44,8 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
+        
+
         fireCDFill.fillAmount = 0f;
         frostCDFill.fillAmount = 0f;
         aquaCDFill.fillAmount = 0f;
@@ -85,6 +87,8 @@ public class PlayerAbility : MonoBehaviour
         //Fireball cast
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            Debug.Log(playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Fireball));
+
             if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Fireball))
             {
                 if (fireBall_CurrentCoolDown <= 0)

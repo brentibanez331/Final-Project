@@ -19,7 +19,7 @@ public class LevelSystem : MonoBehaviour
     public LevelSystem()
     {
         level = 1;
-        currentExp = 200;
+        currentExp = 0;
         requiredExp = 500;
         playerSkills = new PlayerSkills();
     }

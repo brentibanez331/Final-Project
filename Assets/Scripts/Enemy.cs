@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] int damage;
     public int maxHealth = 100;
-    int currentHealth;
+    [HideInInspector] public int currentHealth;
 
     private Shake shake;
 
