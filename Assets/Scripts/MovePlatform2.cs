@@ -9,6 +9,8 @@ public class MovePlatform2 : MonoBehaviour
 
     [SerializeField] float speed;
 
+    [SerializeField] AudioSource moveSFX;
+
     int direction = 1;
 
     bool canMove = false;
@@ -47,6 +49,7 @@ public class MovePlatform2 : MonoBehaviour
     {
         if (collision.collider.tag == "Player")
         {
+            moveSFX.Play();
             canMove = true;
             collision.transform.parent = transform;
         }

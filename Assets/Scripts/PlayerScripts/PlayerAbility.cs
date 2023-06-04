@@ -134,6 +134,7 @@ public class PlayerAbility : MonoBehaviour
             {
                 if(zephyrShield_CurrentCoolDown <= 0)
                 {
+                    zephyrShieldSFX.Play();
                     Instantiate(zephyrShield, transform.position, Quaternion.identity);
                     zephyrShield_CurrentCoolDown = zephyrShield_CD;
                     zephyrCDFill.fillAmount = 1f;

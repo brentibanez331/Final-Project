@@ -12,6 +12,8 @@ public class BullBehaviour2 : MonoBehaviour
     [HideInInspector] public Animator anim;
     [SerializeField] Transform hpBarPlaceholder;
 
+    [SerializeField] AudioSource chargeSFX;
+
     float timeRemaining = 3f;
 
     bool movingLeft = true;
@@ -51,6 +53,7 @@ public class BullBehaviour2 : MonoBehaviour
             {
                 if (!playerDetected)
                 {
+                    chargeSFX.Play();
                     anim.SetTrigger("playerDetected");
                     playerDetected = true;
                     canMove = false;

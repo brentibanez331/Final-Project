@@ -16,6 +16,8 @@ TagManager:
   - FallBounds
   - Heal
   - exp
+  - GameMusic
+  - GameMusic2
   layers:
   - Default
   - TransparentFX
