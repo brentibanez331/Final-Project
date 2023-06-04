@@ -35,13 +35,19 @@ public class PlayerCombat : MonoBehaviour
     public AudioSource hitEnemySFX;
 
     //private PlayerSkills playerSkills;
-
+    StatePreserve stateSettings;
+   
     int enemyLayers = 1 << 3;
 
     private Shake shake;
 
     void Start()
     {
+        stateSettings = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
+
+        currentHealth = stateSettings.currentHealth;
+        maxHealth = stateSettings.maxHealth;
+
         sword = GameObject.FindGameObjectWithTag("Sword");
 
         deathMat.SetFloat("_DissolveAmount", 0f);

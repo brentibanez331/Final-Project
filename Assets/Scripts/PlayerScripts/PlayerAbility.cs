@@ -44,7 +44,6 @@ public class PlayerAbility : MonoBehaviour
 
     private void Start()
     {
-        
 
         fireCDFill.fillAmount = 0f;
         frostCDFill.fillAmount = 0f;

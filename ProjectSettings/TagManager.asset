@@ -18,6 +18,9 @@ TagManager:
   - exp
   - GameMusic
   - GameMusic2
+  - Letter
+  - LevelSystem
+  - StatePreserve
   layers:
   - Default
   - TransparentFX

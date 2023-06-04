@@ -9,6 +9,8 @@ public class LevelSystemAnimated : MonoBehaviour
     public event EventHandler OnExperienceChanged;
     public event EventHandler OnLevelChanged;
 
+    StatePreserve statePreserve;
+
     private int level;
     private int currentExp;
     int requiredExp;
@@ -16,16 +18,24 @@ public class LevelSystemAnimated : MonoBehaviour
     GameObject player;
 
     [SerializeField] LevelSystem levelSystem;
+
     [SerializeField] PlayerHealthBar healthBar;
 
     private bool isAnimating;
     private void Awake()
     {
-        SetLevelSystem();
+        statePreserve = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
 
+        //Debug
         level = levelSystem.GetLevelNumber();
         currentExp = levelSystem.GetCurrentExp();
         requiredExp = levelSystem.GetRequiredExp();
+
+        level = statePreserve.level;
+        currentExp = statePreserve.currentExp;
+        requiredExp = statePreserve.requiredExp;
+
+        SetLevelSystem();
     }
 
     private void Start()
@@ -36,7 +46,6 @@ public class LevelSystemAnimated : MonoBehaviour
     public void SetLevelSystem()
     {
         levelSystem.OnLevelChanged += LevelSystem_OnLevelChanged;
-        //SetLevelNumber(levelSystem.GetLevelNumber());
 
         levelSystem.OnExperienceChanged += LevelSystem_OnExperienceChanged;
     }

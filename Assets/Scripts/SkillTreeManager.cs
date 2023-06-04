@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class SkillTreeManager : MonoBehaviour
 {
+    StatePreserve statePreserve;
+
     [HideInInspector] public bool canAccessSkillTree;
     [SerializeField] PlayerCombat playerCombat;
 
@@ -35,13 +37,13 @@ public class SkillTreeManager : MonoBehaviour
     private PlayerSkills playerSkills;
     [SerializeField] LevelSystem levelSystem;
 
-    [SerializeField] Image fireBall;
+    [SerializeField] public Image fireBall;
     [SerializeField] Sprite fireBallUnlocked;
-    [SerializeField] Image frostBite;
+    [SerializeField] public Image frostBite;
     [SerializeField] Sprite frostBiteUnlocked;
-    [SerializeField] Image aquaPulse;
+    [SerializeField] public Image aquaPulse;
     [SerializeField] Sprite aquaPulseUnlocked;
-    [SerializeField] Image zephyrShield;
+    [SerializeField] public Image zephyrShield;
     [SerializeField] Sprite zephyrShieldUnlocked;
 
     [Header("Skill UIs")]
@@ -60,11 +62,18 @@ public class SkillTreeManager : MonoBehaviour
 
     private void Start()
     {
+        statePreserve = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
+
         fireBallButton = fireBall.GetComponent<Button>();
         frostBiteButton = frostBite.GetComponent<Button>();
         zephyrShieldButton = zephyrShield.GetComponent<Button>();
         aquaPulseButton = aquaPulse.GetComponent<Button>();
         playerSkills = levelSystem.GetPlayerSkills();
+
+        fireBall.sprite = statePreserve.fireball;
+        frostBite.sprite = statePreserve.frostbite;
+        aquaPulse.sprite = statePreserve.aquapulse;
+        zephyrShield.sprite = statePreserve.zephyr;
     }
 
     // Update is called once per frame

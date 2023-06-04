@@ -8,17 +8,23 @@ public class ExperienceBar : MonoBehaviour
 {
     //[SerializeField] public Slider slider;
 
-    [SerializeField] Image expFill;
+    [SerializeField] public Image expFill;
 
     [HideInInspector] public bool isLevel2 = false;
 
     [SerializeField] LevelSystemAnimated levelSystemAnimated;
     [SerializeField] LevelSystem levelSystem;
 
-    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] public TextMeshProUGUI levelText;
+
+    StatePreserve statePreserve;
 
     private void Start()
     {
+        statePreserve = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
+
+        levelText.text = statePreserve.level.ToString();
+
         expFill.fillAmount = 0f;
         SetLevelSystemAnimated();
     }

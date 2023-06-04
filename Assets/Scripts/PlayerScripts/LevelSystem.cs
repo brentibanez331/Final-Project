@@ -12,16 +12,20 @@ public class LevelSystem : MonoBehaviour
     [SerializeField] private int currentExp;
     [SerializeField] int requiredExp;
 
+    StatePreserve stateSettings;
+
     GameObject player;
 
     private PlayerSkills playerSkills;
 
-    public LevelSystem()
+    private void Awake()
     {
-        level = 1;
-        currentExp = 0;
-        requiredExp = 500;
-        playerSkills = new PlayerSkills();
+        stateSettings = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
+
+        level = stateSettings.level;
+        currentExp = stateSettings.currentExp;
+        requiredExp = stateSettings.requiredExp;
+        playerSkills = stateSettings.playerSkills;
     }
 
     private void Start()
