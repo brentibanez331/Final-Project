@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.UI;
 
 public class PlayerAbility : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerAbility : MonoBehaviour
     LevelSystem levelSystem;
 
     [SerializeField] GameObject fireBall;
-    float fireBall_CurrentCoolDown = 0;
+    [HideInInspector] public float fireBall_CurrentCoolDown = 0;
     [SerializeField] public float fireBall_CD = 3f;
 
     [SerializeField] GameObject frostBite;
@@ -26,12 +27,23 @@ public class PlayerAbility : MonoBehaviour
     float zephyrShield_CurrentCoolDown = 0;
     [SerializeField] public float zephyrShield_CD = 3f;
 
+    [SerializeField] Image fireCDFill;
+    [SerializeField] Image frostCDFill;
+    [SerializeField] Image aquaCDFill;
+    [SerializeField] Image zephyrCDFill;
+
+
     int layerMask = 1 << 6;
 
     float distToCollider;
 
     private void Start()
     {
+        fireCDFill.fillAmount = 0f;
+        frostCDFill.fillAmount = 0f;
+        aquaCDFill.fillAmount = 0f;
+        zephyrCDFill.fillAmount = 0f;
+
         levelSystem = gameObject.GetComponent<LevelSystem>();
         playerSkills = levelSystem.GetPlayerSkills();
     }
@@ -45,46 +57,52 @@ public class PlayerAbility : MonoBehaviour
             distToCollider = hit.distance;
         }
 
-        if (fireBall_CurrentCoolDown > -1)
+        if (fireBall_CurrentCoolDown > 0)
         {
             fireBall_CurrentCoolDown -= Time.deltaTime;
         }
 
-        if(frostBite_CurrentCoolDown > -1)
+        if(frostBite_CurrentCoolDown > 0)
         {
             frostBite_CurrentCoolDown -= Time.deltaTime;
         }
 
-        if(aquaPulse_CurrentCoolDown > -1)
+        if(aquaPulse_CurrentCoolDown > 0)
         {
             aquaPulse_CurrentCoolDown -= Time.deltaTime;
         }
 
-        if (zephyrShield_CurrentCoolDown > -1)
+        if (zephyrShield_CurrentCoolDown > 0)
         {
             zephyrShield_CurrentCoolDown -= Time.deltaTime;
         }
 
+        //Fireball cast
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.Fireball))
             {
-                if (fireBall_CurrentCoolDown < 0)
+                if (fireBall_CurrentCoolDown <= 0)
                 {
                     Instantiate(fireBall, transform.position, Quaternion.identity);
                     fireBall_CurrentCoolDown = fireBall_CD;
+                    fireCDFill.fillAmount = 1f;
+                    StartCoroutine(FireBallCD());
                 }
             }
         }
 
+        //Frostbite
         if (Input.GetKeyDown(KeyCode.E))
-        {
+        {   
             if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.FrostBite))
             {
-                if (frostBite_CurrentCoolDown < 0)
+                if (frostBite_CurrentCoolDown <= 0)
                 {
                     Instantiate(frostBite, transform.position, Quaternion.identity);
                     frostBite_CurrentCoolDown = frostBite_CD;
+                    frostCDFill.fillAmount = 1f;
+                    StartCoroutine(FrostBiteCD());
                 }
             }
         }
@@ -93,10 +111,12 @@ public class PlayerAbility : MonoBehaviour
         {
             if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.AquaPulse))
             {
-                if (aquaPulse_CurrentCoolDown < 0)
+                if (aquaPulse_CurrentCoolDown <= 0)
                 {
                     Instantiate(aquaPulse, new Vector2(transform.position.x, transform.position.y - (distToCollider - 1f)), Quaternion.identity);
                     aquaPulse_CurrentCoolDown = aquaPulse_CD;
+                    aquaCDFill.fillAmount = 1f;
+                    StartCoroutine(AquaPulseCD());
                 }
             }
         }
@@ -105,12 +125,49 @@ public class PlayerAbility : MonoBehaviour
         {
             if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.ZephyrShield))
             {
-                if(zephyrShield_CurrentCoolDown < 0)
+                if(zephyrShield_CurrentCoolDown <= 0)
                 {
                     Instantiate(zephyrShield, transform.position, Quaternion.identity);
                     zephyrShield_CurrentCoolDown = zephyrShield_CD;
+                    zephyrCDFill.fillAmount = 1f;
+                    StartCoroutine(ZephyrShieldCD());
                 }
             }
+        }
+    }
+
+    IEnumerator FireBallCD()
+    {
+        while (fireCDFill.fillAmount > 0f)
+        {
+            fireCDFill.fillAmount = fireBall_CurrentCoolDown / fireBall_CD;
+            yield return null;
+        }
+    }
+
+    IEnumerator FrostBiteCD()
+    {
+        while (frostCDFill.fillAmount > 0f)
+        {
+            frostCDFill.fillAmount = frostBite_CurrentCoolDown / frostBite_CD;
+            yield return null;
+        }
+    }
+
+    IEnumerator AquaPulseCD()
+    {
+        while (aquaCDFill.fillAmount > 0f)
+        {
+            aquaCDFill.fillAmount = aquaPulse_CurrentCoolDown / aquaPulse_CD;
+            yield return null;
+        }
+    }
+    IEnumerator ZephyrShieldCD()
+    {
+        while (zephyrCDFill.fillAmount > 0f)
+        {
+            zephyrCDFill.fillAmount = zephyrShield_CurrentCoolDown / zephyrShield_CD;
+            yield return null;
         }
     }
 }

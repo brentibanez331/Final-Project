@@ -13,6 +13,5 @@ public class DamagePlayer : MonoBehaviour
         {
             playerCombat.TakeDamage(enemy.GetDamage());
         }
-
     }
 }

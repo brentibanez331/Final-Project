@@ -7,12 +7,14 @@ public class ItemDrop : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private GameObject expLoot;
+    [SerializeField] private GameObject healLoot;
 
     [SerializeField] int minDrops;
     [SerializeField] private int maxDrops;
     [SerializeField] int experienceValue;
 
     ExpLoot exp;
+    HealPickUp heal;
 
     int drops;
 
@@ -34,5 +36,14 @@ public class ItemDrop : MonoBehaviour
             Vector3 newRotation = new Vector3(0f, 0f, Random.Range(-spread, spread));
             Instantiate(expLoot, transform.position, Quaternion.Euler(newRotation));
         }
+
+        int healChance = Random.Range(1, 10);
+
+        if(healChance == 1)
+        {
+            Instantiate(healLoot, transform.position + new Vector3(0f, 2f), Quaternion.identity);
+        }
+        
+
     }
 }

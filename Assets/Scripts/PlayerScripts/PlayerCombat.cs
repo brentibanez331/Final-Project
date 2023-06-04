@@ -9,6 +9,9 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] ParticleSystem deathParticle;
     [SerializeField] Material deathMat;
 
+    [SerializeField] private ParticleSystem healCut;
+    [SerializeField] private ParticleSystem healParticles;
+
     float dissolveAmount = 0;
     float dissolveSpeed = 1f;
 
@@ -99,6 +102,15 @@ public class PlayerCombat : MonoBehaviour
                 deathParticle.Play();
                 StartCoroutine(Death());
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Heal")
+        {
+            healCut.Play();
+            healParticles.Play();
         }
     }
 

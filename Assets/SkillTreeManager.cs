@@ -44,6 +44,12 @@ public class SkillTreeManager : MonoBehaviour
     [SerializeField] Image zephyrShield;
     [SerializeField] Sprite zephyrShieldUnlocked;
 
+    [Header("Skill UIs")]
+    [SerializeField] Image fireBallUI;
+    [SerializeField] Image frostUI;
+    [SerializeField] Image aquaUI;
+    [SerializeField] Image zephyrUI;
+
     Button fireBallButton;
     Button frostBiteButton;
     Button zephyrShieldButton;
@@ -90,6 +96,8 @@ public class SkillTreeManager : MonoBehaviour
             cb = fireBallButton.colors;
             cb.normalColor = Color.white;
             fireBallButton.colors = cb;
+
+            fireBallUI.sprite = fireBallUnlocked;
         }
         if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.FrostBite))
         {
@@ -97,6 +105,8 @@ public class SkillTreeManager : MonoBehaviour
             cb = frostBiteButton.colors;
             cb.normalColor = Color.white;
             frostBiteButton.colors = cb;
+
+            frostUI.sprite = frostBiteUnlocked;
         }
         if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.AquaPulse))
         {
@@ -104,6 +114,8 @@ public class SkillTreeManager : MonoBehaviour
             cb = aquaPulseButton.colors;
             cb.normalColor = Color.white;
             aquaPulseButton.colors = cb;
+
+            aquaUI.sprite = aquaPulseUnlocked;
         }
         if (playerSkills.IsSkillUnlocked(PlayerSkills.SkillType.ZephyrShield))
         {
@@ -111,6 +123,8 @@ public class SkillTreeManager : MonoBehaviour
             cb = zephyrShieldButton.colors;
             cb.normalColor = Color.white;
             zephyrShieldButton.colors = cb;
+
+            zephyrUI.sprite = zephyrShieldUnlocked;
         }
     }
 
