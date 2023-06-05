@@ -36,6 +36,7 @@ public class PlayerCombat : MonoBehaviour
 
     public AudioSource swordSFX;
     public AudioSource hitEnemySFX;
+    public AudioSource deathSFX;
 
     //private PlayerSkills playerSkills;
     GameObject stateSettingsObj;
@@ -127,6 +128,7 @@ public class PlayerCombat : MonoBehaviour
 
             if (currentHealth <= 0)
             {
+                deathSFX.Play();
                 deathParticle.Play();
                 StartCoroutine(Death());
             }
