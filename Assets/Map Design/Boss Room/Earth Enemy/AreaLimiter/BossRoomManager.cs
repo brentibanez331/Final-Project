@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossRoomManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class BossRoomManager : MonoBehaviour
 
     private Vector3 bossLoc;
 
+    [SerializeField] AudioSource deathSFX;
+
+    [SerializeField] SceneHandler sceneHandler;
+
     [SerializeField] private GameObject EndDialogue;
     void Awake()
     {
@@ -45,6 +50,7 @@ public class BossRoomManager : MonoBehaviour
         }
         if (isInside)
         {
+
             StartCoroutine(InitiateBarrier()); //function that starts when player enters the collider          
             if(HealthBarUI != null)
             {
@@ -59,6 +65,7 @@ public class BossRoomManager : MonoBehaviour
         {
             if (isDead)
             {
+                deathSFX.Play();
                 GenerateExplosion(explosion);
                 StartCoroutine(InitiateExitWindow());
                 isDead = false;
@@ -69,6 +76,17 @@ public class BossRoomManager : MonoBehaviour
             {
                 //Debug.Log(limitArea.barrierArray[i].gameObject.name);
                 Destroy(limitArea.barrierArray[i]);
+            }
+        }
+
+        if (onDialogue)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                onDialogue = false;
+                sceneHandler.StartFade("MainMenu");
+                EndDialogue.SetActive(false);
+                Time.timeScale = 1;
             }
         }
     }
@@ -125,16 +143,6 @@ public class BossRoomManager : MonoBehaviour
         EndDialogue.SetActive(true);
         Time.timeScale = 0;
         onDialogue = true;
-        if (onDialogue)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Debug.Log("Scene to Main Menu");
-                EndDialogue.SetActive(false);
-                Time.timeScale = 1;
-            }
-            onDialogue = false;
-        }
         yield return null;
     }
 }

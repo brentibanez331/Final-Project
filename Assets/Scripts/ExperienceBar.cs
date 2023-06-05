@@ -18,6 +18,7 @@ public class ExperienceBar : MonoBehaviour
     [SerializeField] public TextMeshProUGUI levelText;
 
     StatePreserve statePreserve;
+    DefaultState defaultState;
 
     private void Start()
     {

@@ -9,9 +9,11 @@ public class CastProjectile : MonoBehaviour
     private float[] positionMultiplier = { -2f, 0f, 2f };
     public float addRotation = 10f;
 
+    [SerializeField] AudioSource castSFX;
 
     public void Cast(GameObject projectile)
     {
+        castSFX.Play();
         for(int i = 0; i < 3; i++)
         {
             Vector3 position = new Vector3(positionMultiplier[i], 0f, 0f);

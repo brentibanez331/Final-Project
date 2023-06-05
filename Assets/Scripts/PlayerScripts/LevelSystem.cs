@@ -22,10 +22,13 @@ public class LevelSystem : MonoBehaviour
     {
         stateSettings = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
 
-        level = stateSettings.level;
-        currentExp = stateSettings.currentExp;
-        requiredExp = stateSettings.requiredExp;
-        playerSkills = stateSettings.playerSkills;
+        if (stateSettings != null)
+        {
+            level = stateSettings.level;
+            currentExp = stateSettings.currentExp;
+            requiredExp = stateSettings.requiredExp;
+            playerSkills = stateSettings.playerSkills;
+        }
     }
 
     private void Start()

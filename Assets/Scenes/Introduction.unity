@@ -6369,7 +6369,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -6737,7 +6737,6 @@ GameObject:
   - component: {fileID: 652381300}
   - component: {fileID: 652381304}
   - component: {fileID: 652381303}
-  - component: {fileID: 652381307}
   - component: {fileID: 652381308}
   - component: {fileID: 652381306}
   - component: {fileID: 652381305}
@@ -6914,27 +6913,13 @@ MonoBehaviour:
   healParticles: {fileID: 0}
   maxHealth: 100
   currentHealth: 100
-  playerHealthBar: {fileID: 1505990526}
+  playerHealthBar: {fileID: 0}
   attackPoint: {fileID: 1440517374}
   attackRange: {x: 3, y: 1.5}
   canTakeDamage: 1
+  sceneHandler: {fileID: 0}
   swordSFX: {fileID: 652381312}
   hitEnemySFX: {fileID: 0}
---- !u!114 &652381307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 652381299}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3f688e886e1fc34b9f0c0814c7be12d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 1
-  currentExp: 0
-  requiredExp: 500
 --- !u!114 &652381308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7262,10 +7247,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_audioClip: {fileID: 8300000, guid: 74dfecc4fc6f20c4e8056dbae7fe7671, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.178
+  m_Pitch: 0.63
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -7424,7 +7409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a68d870c57e73f4aaf76a5c03591165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSystem: {fileID: 652381307}
+  levelSystem: {fileID: 0}
   healthBar: {fileID: 0}
 --- !u!4 &695976279
 Transform:
@@ -13014,7 +12999,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1166094536}
-  - component: {fileID: 1166094537}
   m_Layer: 5
   m_Name: HealthDamp
   m_TagString: Untagged
@@ -13043,21 +13027,6 @@ RectTransform:
   m_AnchoredPosition: {x: 113.54835, y: 40.7}
   m_SizeDelta: {x: 426, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1166094537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1166094535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c244821942f9274ab5e1a5333beae2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hpFill: {fileID: 836063715}
-  hpBar: {fileID: 1505990526}
-  takenDamage: 0
 --- !u!1 &1293529712
 GameObject:
   m_ObjectHideFlags: 0
@@ -13796,7 +13765,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505990525}
-  - component: {fileID: 1505990526}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -13826,23 +13794,6 @@ RectTransform:
   m_AnchoredPosition: {x: 113.950005, y: 41.999992}
   m_SizeDelta: {x: 426, y: 42}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1505990526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1505990524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a43a907681d343e4dbfe92d1befa205e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  previousHealth: 0
-  maxHealth: 0
-  hpFill: {fileID: 2142917926}
-  playerHpDamp: {fileID: 1166094537}
 --- !u!1 &1519935252
 GameObject:
   m_ObjectHideFlags: 0
@@ -13894,7 +13845,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619589884}
-  - component: {fileID: 1619589885}
   m_Layer: 5
   m_Name: ExperienceBar
   m_TagString: Untagged
@@ -13924,23 +13874,6 @@ RectTransform:
   m_AnchoredPosition: {x: 65.57497, y: -26.3}
   m_SizeDelta: {x: 498.34995, y: 77.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1619589885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619589883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 629242589657b7d42b21b33a39efc25d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  expFill: {fileID: 577643384}
-  isLevel2: 0
-  levelSystemAnimated: {fileID: 695976278}
-  levelSystem: {fileID: 652381307}
-  levelText: {fileID: 1495826114}
 --- !u!1 &1621609858
 GameObject:
   m_ObjectHideFlags: 0
@@ -15636,7 +15569,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.263
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

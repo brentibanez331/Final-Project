@@ -108,6 +108,7 @@ public class PlayerAbility : MonoBehaviour
             {
                 if (frostBite_CurrentCoolDown <= 0)
                 {
+                    frostBiteSFX.Play();
                     Instantiate(frostBite, transform.position, Quaternion.identity);
                     frostBite_CurrentCoolDown = frostBite_CD;
                     frostCDFill.fillAmount = 1f;

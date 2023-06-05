@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.ReorderableList;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class SlimeBehaviour : MonoBehaviour

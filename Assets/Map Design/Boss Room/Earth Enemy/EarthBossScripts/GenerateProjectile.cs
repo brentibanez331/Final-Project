@@ -16,6 +16,8 @@ public class GenerateProjectile : MonoBehaviour
     private bool instantiatedPrefab; //determines if projectile is instantiated
     private bool instatiantedParticle; //determines if particle is instantiated
 
+    [SerializeField] AudioSource rockSFX;
+
     public IEnumerator ProjectileGenerator()
     {
         yield return new WaitForSeconds(1f);
@@ -30,7 +32,8 @@ public class GenerateProjectile : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         if (!instantiatedPrefab) // instantiates particle
-        {            
+        {
+            rockSFX.Play();
             foreach (Transform projectileLoc in projectileLocation)
             {
                 GameObject projectileGO = (GameObject)Instantiate(projectilePrefab, projectileLoc.position, projectileLoc.rotation);

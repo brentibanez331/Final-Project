@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -31,10 +32,13 @@ public class PlayerCombat : MonoBehaviour
 
     [HideInInspector] public bool canTakeDamage = true;
 
+    [SerializeField] SceneHandler sceneHandler;
+
     public AudioSource swordSFX;
     public AudioSource hitEnemySFX;
 
     //private PlayerSkills playerSkills;
+    GameObject stateSettingsObj;
     StatePreserve stateSettings;
    
     int enemyLayers = 1 << 3;
@@ -43,18 +47,21 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-        stateSettings = GameObject.FindGameObjectWithTag("StatePreserve").GetComponent<StatePreserve>();
+        stateSettingsObj = GameObject.FindGameObjectWithTag("StatePreserve");
 
-        currentHealth = stateSettings.currentHealth;
-        maxHealth = stateSettings.maxHealth;
+        if(stateSettingsObj != null)
+        {
+            stateSettings = stateSettingsObj.GetComponent<StatePreserve>();
+            currentHealth = stateSettings.currentHealth;
+            maxHealth = stateSettings.maxHealth;
+            playerHealthBar.SetHealth(currentHealth, maxHealth);
+        }
 
         sword = GameObject.FindGameObjectWithTag("Sword");
 
         deathMat.SetFloat("_DissolveAmount", 0f);
 
         shake = GameObject.FindGameObjectWithTag("ScreenShake").GetComponent<Shake>();
-
-        playerHealthBar.SetHealth(currentHealth, maxHealth);
 
         anim = GetComponent<Animator>();
     }
@@ -161,6 +168,7 @@ public class PlayerCombat : MonoBehaviour
 
             yield return null;
         }
+        sceneHandler.StartFade(SceneManager.GetActiveScene().name);
 
         gameObject.SetActive(false);
     }
